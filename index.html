@@ -1,169 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Banner — Vermelho, Branco e Sangue Azul</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --red:#d90429;      
-      --white:#ffffff;    
-      --blue:#1f3c88;     
-      --ink:#0a0a0a;      
-      --shadow: 0 20px 60px rgba(0,0,0,.22);
-      --radius: 24px;
-      --maxw: 1100px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-      background:#0b1220;
-      color:#111;
-    }
-
-    .rwrba-banner{
-      position:relative;
-      isolation:isolate;
-      display:grid;
-      place-items:center;
-      min-height:60svh;
-      padding: clamp(24px, 5vw, 56px);
-      border-radius: var(--radius);
-      overflow:hidden;
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 60%),
-        radial-gradient(900px 500px at 90% 90%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 60%),
-        linear-gradient(120deg, var(--red) 0%, var(--red) 26%, var(--white) 26%, var(--white) 50%, var(--blue) 50%, var(--blue) 100%);
-    }
-
-    .rwrba-banner::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        repeating-linear-gradient(135deg, rgba(255,255,255,.08) 0 2px, transparent 2px 8px);
-      mix-blend-mode: overlay;
-      opacity:.35;
-      pointer-events:none;
-    }
-
-    .banner-inner{
-      position:relative;
-      z-index:1;
-      width:100%;
-      max-width: var(--maxw);
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      gap: clamp(10px, 2vw, 18px);
-      color:#0c1020;
-      text-shadow: 0 1px 0 rgba(255,255,255,.35);
-    }
-
-    .tagline{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      backdrop-filter:saturate(140%) blur(6px);
-      background: rgba(255,255,255,.65);
-      font-size: clamp(.8rem, 1.3vw, .95rem);
-      font-weight:600;
-      letter-spacing:.3px;
-    }
-    .tagline svg{ width:18px; height:18px; }
-
-    h1{
-      margin:0;
-      line-height:1.05;
-      font-weight:800;
-      font-size: clamp(1.8rem, 6vw, 4rem);
-      color:#0b0f1a;
-    }
-
-    .subtitle{
-      margin:0;
-      max-width: 56ch;
-      font-size: clamp(1rem, 1.6vw, 1.25rem);
-      font-weight:500;
-      color:#121622;
-    }
-
-    .actions{ display:flex; gap:12px; flex-wrap:wrap; }
-
-    .btn{
-      --btn-bg:#0b0f1a;
-      --btn-fg:#fff;
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 18px;
-      border-radius: 14px;
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:.3px;
-      background: var(--btn-bg);
-      color: var(--btn-fg);
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-      transform: translateY(0);
-      transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease;
-    }
-    .btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.28); }
-    .btn:active{ transform: translateY(0); }
-
-    .btn-outline{
-      --btn-bg: rgba(255,255,255,.75);
-      --btn-fg: #0b0f1a;
-      backdrop-filter: blur(6px);
-      border: 2px solid rgba(12,16,26,.2);
-    }
-
-    /* Botão “Assistir ao Filme” */
-    .watch-btn{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:12px 20px;
-      border-radius:14px;
-      font-weight:700;
-      color:#fff;
-      background:#1f3c88;
-      text-decoration:none;
-      box-shadow:0 8px 24px rgba(0,0,0,.25);
-      transition: all .25s ease;
-    }
-    .watch-btn:hover{ background:#d90429; transform:scale(1.05);}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Clara</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <section class="rwrba-banner" role="banner" aria-label="Banner Vermelho, Branco e Sangue Azul">
-      <div class="decor" aria-hidden="true">
-        <!-- Crown icon -->
-        <svg class="crown" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-          <path d="M8 46l4-26 12 10 8-14 8 14 12-10 4 26H8zm0 6h48v4H8z"/>
-        </svg>
-        <!-- Stars group -->
-        <svg class="stars" viewBox="0 0 120 60" fill="currentColor" aria-hidden="true">
-          <path d="M20 10l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9l3-9zM70 10l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9l3-9zM45 30l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6l2-6z"/>
-        </svg>
-      </div>
+  <header>
+    <h1>🌸 Clara Beatriz</h1>
+    <p>Bem-vindo ao meu mini site!</p>
+  </header>
 
-      <div class="banner-inner">
-        <span class="tagline" aria-label="Gêneros do conteúdo">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.36-9.33-8.67C1.5 8.84 3.86 6 7 6c2.03 0 3.33 1.13 4 2 .67-.87 1.97-2 4-2 3.14 0 5.5 2.84 4.33 6.33C19.5 16.64 12 21 12 21z"/></svg>
-          Romance • Comédia • Realeza
-        </span>
-        <h1>Vermelho, Branco e Sangue Azul</h1>
-        <p class="subtitle">Um toque de realeza, um mar de sentimentos — em um banner elegante nas cores do título.</p>
-        <div class="actions">
-          <a class="btn" href="#saiba-mais">Saiba mais</a>
-          <!-- Botão com link direto pro filme -->
-          <a class="watch-btn" href="https://www.primevideo.com/detail/0I9XHZ3LCM7TVFSW13MFT7Y9YC" target="_blank">🎬 Assistir ao Filme</a>
-        </div>
-      </div>
-    </section>
+  <div class="profile-card">
+    <img src="https://i.ibb.co/6YbZz5x/avatar.png" alt="Foto de Clara">
+    <h2>@clara_beatriz</h2>
+    <p>✨ Estudante • 💻 Tecnologia • 🎨 Arte</p>
+    <div class="stats">
+      <span><b>50</b> posts</span>
+      <span><b>1.2k</b> seguidores</span>
+      <span><b>180</b> seguindo</span>
+    </div>
+    <a class="insta-btn" href="https://www.instagram.com/clara_beatriz" target="_blank">Ver Instagram</a>
+  </div>
+
+  <main>
+    <h3>📸 Galeria de Imagens</h3>
+    <div class="gallery">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQakp_e7TR78PmlZlIhsQ9tT18Rw-8MZjYLBKkjvE923EN3LRFnymacsY-aN1RcXYvFqf3wCjFq2kFvfhmHko5kwIyUcRPx6GPX6e-wyV8G" alt="Foto 1">
+      <img src="https://picsum.photos/300/300?random=22" alt="Foto 2">
+      <img src="https://picsum.photos/300/300?random=23" alt="Foto 3">
+      <img src="https://picsum.photos/300/300?random=24" alt="Foto 4">
+      <img src="https://picsum.photos/300/300?random=25" alt="Foto 5">
+      <img src="https://picsum.photos/300/300?random=26" alt="Foto 6">
+    </div>
   </main>
+
+  <footer>
+    <p>© 2025 • Mini Site de Clara • Feito com ❤️</p>
+  </footer>
 </body>
 </html>
